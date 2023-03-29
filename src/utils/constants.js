@@ -72,4 +72,4 @@ export const friends = {
 };
 
 export const characters = Object.keys(friends);
-export const defaultHero = characters[5];
+export const defaultHero = characters[1];

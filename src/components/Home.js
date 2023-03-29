@@ -21,21 +21,9 @@ class Home extends Component
 
     componentDidUpdate(prevProps, prevState, snapshot)
     {
-        try
-        {
-            console.log(prevProps);
-            let key = this.getKey();
-            if (!characters.includes(key))
-                key = defaultHero;
-            if (!prevProps.match.params.hero)
-                prevProps.match.params.hero = defaultHero;
-            if (key !== prevProps.match.params.hero)
-                this.props.changeHero(key);
-        }
-        catch (e)
-        {
-            console.log(e.message);
-        }
+        const key = this.getKey();
+        if (key !== prevProps.hero)
+            this.props.changeHero(key);
     }
 
     render()

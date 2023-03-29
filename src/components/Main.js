@@ -18,7 +18,7 @@ const Main = (props) =>
         <Switch>
             <Route path={["/", `/${homePage}`, `/${homePage}/:hero`]} exact
                 render={(routeProps) =>
-                    <Home {...routeProps} changeHero={props.changeHero}/>}/>
+                    <Home {...routeProps} hero={props.hero} changeHero={props.changeHero}/>}/>
 
             <Route path={[`/${aboutMePage}`,`/${aboutMePage}/:hero`]} exact
                 render={(routeProps) =>
