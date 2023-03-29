@@ -3,7 +3,6 @@ import Friends from "./Friends";
 import FarGalaxy from "./FarGalaxy";
 import React, {Component} from 'react';
 import {characters, defaultHero} from "../utils/constants";
-import {logDOM} from "@testing-library/react";
 
 class Home extends Component
 {
@@ -25,14 +24,18 @@ class Home extends Component
         try
         {
             console.log(prevProps);
-            const key = this.getKey();
+            let key = this.getKey();
+            if (!characters.includes(key))
+                key = defaultHero;
+            if (!prevProps.match.params.hero)
+                prevProps.match.params.hero = defaultHero;
             if (key !== prevProps.match.params.hero)
                 this.props.changeHero(key);
-        } catch (e)
+        }
+        catch (e)
         {
             console.log(e.message);
         }
-
     }
 
     render()
